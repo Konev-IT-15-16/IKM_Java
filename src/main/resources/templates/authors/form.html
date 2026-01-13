@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::section}, 'Add Authors')">
+
+<section>
+    <h1>Add Author</h1>
+
+    <form th:action="@{/authors/save}" th:object="${author}" method="post">
+
+        <p>
+            <input type="text" th:field="*{title}" placeholder="Title">
+        </p>
+
+        <p>
+            <select th:field="*{author}">
+                <option th:each="a : ${authors}"
+                        th:value="${a}"
+                        th:text="${a.name}">
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select multiple th:field="*{authors}">
+                <option th:each="a : ${authors}"
+                        th:value="${a}"
+                        th:text="${a.name}">
+                </option>
+            </select>
+        </p>
+
+        <button class="btn" type="submit">Save</button>
+    </form>
+</section>
+
+</html>

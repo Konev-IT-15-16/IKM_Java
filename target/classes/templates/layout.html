@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content, title)">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Library</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header>
+    <h2>Library Management System</h2>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/books}">Books</a>
+        <a th:href="@{/authors}">Authors</a>
+        <a th:href="@{/genres}">Genres</a>
+    </nav>
+</header>
+
+<main th:replace="${content}">
+    <!-- content -->
+</main>
+
+<footer>
+    © Library Project
+</footer>
+
+</body>
+</html>
